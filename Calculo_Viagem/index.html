@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/Calculadora/imagens/favicon/favicon.ico" type="image/x-icon">
+    <title>Calcúlo de viagem</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Calcúlo de viagem</h1>
+    <p>
+        <h3>Selecione o tipo de Combustível:</h3>
+        <p>
+        <select id="combustivel">
+            <option value="Selecione"></option>
+            <option value="gasolina">Gasolina</option>
+            <option value="etanol">Etanol</option>
+            <option value="diesel">Diesel</option>
+        </select>
+        </p>
+        <h3>Qual é o consumo do carro (km/L):</h3>
+        <p>
+        <input placeholder="Ex: 20" class="campodigitar" type="text" id="consumo">
+        </p>
+        <h3>Qual é a distância da viagem (km):</h3>
+        <p>
+        <input placeholder="Ex: 100.2" class="campodigitar" type="text" id="distancia">
+        </p>
+    </p>
+    <center>
+        <input class="butao-legal" type="button" onclick="calcular()" value="Verificar">
+    </center>
+    <h4>O gasto será de R$&nbsp;<span id="gasto"></span></h4>
+    <script>
+        function calcular() {
+            var combustivel = document.getElementById("combustivel").value;
+            var consumo = document.getElementById("consumo").value;
+            var distancia = document.getElementById("distancia").value;
+            if (combustivel == "Selecione") {
+                alert("Selecione o tipo de combustível");
+            }
+            else if (combustivel == "gasolina") {
+                var gasto = (distancia/consumo) * 5.75;
+                document.getElementById("gasto").innerText = gasto.toFixed(2);
+            }
+            else if (combustivel == "etanol") {
+                var gasto = (distancia / consumo) * 3.42;
+                document.getElementById("gasto").innerText = gasto.toFixed(2);
+            }
+            else if (combustivel == "diesel") {
+                var gasto = (distancia / consumo) * 5.85;
+                document.getElementById("gasto").innerText = gasto.toFixed(2);
+            }
+        }
+    </script>
+</body>
+
+</html>

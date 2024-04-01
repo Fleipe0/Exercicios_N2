@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/Calculadora/imagens/favicon/favicon.ico" type="image/x-icon">
+    <title>Classificação de idade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Classificação de idade</h1>
+    <h3>Insira a sua idade:</h3>
+    <p>
+        <input placeholder="Ex: 15" class="campodigitar" type="text" id="idade">
+    </p>
+    <center>
+        <input class="butao-legal" type="button" onclick="calcular()" value="Verificar">
+    </center>
+    <h4><span id="classificacao"></span>&nbsp;<span id="maioridade"></span> </h4>
+    <script>
+        function calcular() {
+            var idade = document.getElementById("idade").value;
+            if (idade <= 10) {
+                document.getElementById("classificacao").innerText = "Você é uma criança de " + idade + " anos";
+            }
+            else if (idade == 11) {
+                document.getElementById("classificacao").innerText = "Você é um pré adolescente de 11 anos";
+            }
+            else if (idade > 11 && idade <= 17) {
+                document.getElementById("classificacao").innerText = "Você é um adolescente de " + idade + " anos";
+            }
+            else if (idade >= 18 && idade <= 60) {
+                document.getElementById("classificacao").innerText = "Você é um adulto de " + idade + " anos";
+            }
+            else if (idade > 60) {
+                document.getElementById("classificacao").innerText = "Você é um idoso de " + idade + " anos";
+            }
+            if (idade >= 18) {
+                document.getElementById("maioridade").innerText = "  e você é maior de idade";
+            }
+            else if (idade < 18){
+                document.getElementById("maioridade").innerText = "  e você não é maior de idade";
+            }
+        }
+    </script>
+</body>
+
+</html>
